@@ -1,0 +1,26 @@
+Evan Sturtevant
+
+- project description
+
+I plan on 
+
+- project deliverables
+
+A working website with the required backend capabilites. 
+I am not taking Web Design, so I don't have a clear idea of how much asthetic effort I want to apply,
+I would like the site to be somewhat pretty.
+Additionally I am taking Computer Graphics w/ Dr. Kruse, which this semester is using WebGL, so maybe some integration fo those projects
+
+- project technologies
+
+JavaScript
+HTML
+CSS
+Database of somekind
+WebGL?
+
+- learning outcomes
+
+Would like to create functionality of professional websites
+Ideally incorporating user logins / accounts + cookies to make them work
+Everything else outlined in the project description
