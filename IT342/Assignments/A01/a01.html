@@ -1,0 +1,97 @@
+<html>
+    <head>
+        <title>Title</title>
+        <link rel="icon" href="https://art.pixilart.com/4667b574ede007f.gif" />
+
+        <meta charset="UTF-8">
+    </head>
+
+    <!--   Lazy embedded css :(  -->
+    <style>
+        .one-third{
+            display: block;
+            float:left;
+            width:33%;
+        }
+
+        .censor-container{
+            position:relative;
+            width: 100%;
+        }
+        img{
+            width: 100%;
+        }
+        .censor{
+            position:absolute;
+            bottom:0;
+            left:0;
+            right:0;
+            background-color: black;
+            overflow: hidden;
+            width: 100%;
+            height: 100%;
+            transition: 0.5s ease;
+        }
+
+        .censor-container:hover .censor{
+            height: 0;
+        }
+
+        #facebook{
+            display: inline-flex;
+            width: 32px;
+            height: 32px;
+        }
+    </style>
+
+    <body>
+        <header>
+            <a href="#bottom_of_page">bottom</a>
+        </header>
+        <div>
+            <div class="one-third">
+                <h1>Videos</h1>   
+                
+                <iframe width="100%" height="315" src="https://www.youtube.com/embed/Yep6GVM0IYs?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe width="100%" height="315" src="https://www.youtube.com/embed/v8-8WsYj9FU?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+            </div>
+
+            <div class="one-third"> 
+                <h1> About </h1> 
+
+                <p> I'm a senior now </p>
+                <p> this is a real <a href="https://www.evansturtevant.github.io/IT342/Assignments/A01/a01.html">website!</a></p>
+            </div>
+
+            <div class="one-third"> 
+                <h1> Images *Warning Cursed* </h1>
+                <p> hover to view </p>
+
+                <div class = "censor-container">
+                    <img src = "https://i.redd.it/8rr2tq0tfp831.jpg">
+                    <div class = "censor"></div>
+                </div>
+                
+
+                <div class = "censor-container">
+                    <img src ="https://i.redd.it/jgmlc9md45551.jpg">
+                    <div class = "censor"></div>
+                </div>
+
+                <div class = "censor-container">
+                    <img src = "https://i.redd.it/jgkelnv75t551.jpg">
+                    <div class = "censor"></div>
+                </div>
+                
+                
+            </div>
+        </div>
+        <br>
+        <footer>
+            <a id="bottom_of_page"> </a>
+            <p>Footer is for feet. and faces: <a href="https://www.facebook.com"><img id="facebook" src="https://img.icons8.com/dotty/344/facebook-new.png" > </a>
+            </p>
+        </footer>
+    </body>
+</html>
