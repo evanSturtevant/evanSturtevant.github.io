@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<HTML>
+
+<HEAD>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
+<title>Lab 04 Primitives</title>
+
+</HEAD>
+
+<STYLE>
+  canvas{
+    border: 1px solid;
+  }
+</STYLE>
+
+<BODY>
+
+<canvas id="gl-canvas" width="512" height="512" >
+Oops ... your browser doesn't support the HTML5 canvas element
+</canvas>
+
+<br>
+
+<select id="lineType" size="1">
+  <option value="0">Points</option>
+  <option value="1">Lines</option>
+  <option value="2">Line Strip</option>
+  <option value="3">Line Loop</option>
+  <option value="4">Triangles</option>
+  <option value="5">Triangle Strip</option>
+  <option value="6">Triangle Fan</option>
+</select>
+
+<button type="button" onclick="render();"> Draw </button>
+<script id="vertex-shader" type="x-shader/x-vertex">
+#version 300 es
+in vec4 aPosition;
+void
+main()
+{
+  gl_PointSize = 5.0;
+  gl_Position = aPosition;
+}
+</script>
+
+<script id="fragment-shader" type="x-shader/x-fragment">
+#version 300 es
+precision mediump float;
+out vec4 fColor;
+void
+main()
+{
+  fColor = vec4(1.0,0.0,0.0,1.0);
+}
+</script>
+<script type="text/javascript" src="../../Common/initShaders.js"></script>
+<script type="text/javascript" src="../../Common/MVnew.js"></script>
+<script type="text/javascript" src="lab04.js"></script>
+
+</BODY>
+</HTML>
