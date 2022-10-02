@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Basic JavaScript!</title>
+    </head>
+
+    <style>
+        #calcContainer{
+            border: 1px black dashed;
+            display: inline-block;
+            padding: 10px;
+        }
+        button{
+            width: 25px;
+            height: 25px;
+            float:left;
+            border-radius: 0px;
+        }
+        .longBtn{
+            width: 50px;
+        }
+        .row{
+            display: flex;
+            align-items: center;
+        }
+        #watchContainer{
+            margin-top: 15px;
+            border: 1px black dashed;
+            display: inline-block;
+            padding:10px;
+        }
+        input{
+            width: 150px;
+        }
+    </style>
+
+    <body>
+        <div id="calcContainer">
+            <input type="text" id="calculatorInput" value="">
+            <br>
+            <input type="text" id="calculatorOutput" value="">
+            
+            <br>
+            <div id="buttonContainer">
+                <div class="row">
+                    <button type="button" id="addBtn">+</button>
+                    <button type="button" id="subtractBtn">-</button>
+                </div>
+                
+                <div class="row">
+                    <button type="button" id="multiplyBtn">*</button>
+                    <button type="button" id="divideBtn">/</button>
+                </div>
+                <div class="row">
+                    <button type="button" class="longBtn" id="clearBtn">C</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="watchContainer">
+            <input type="text" id="stopwatch" value="">
+
+            <div id="buttonContainer">
+                <div class="row">
+                    <button type="button" class="longBtn" onclick="start()" id="start">start</button>
+                    <button type="button" class="longBtn" onclick="stop()" id="stop">stop</button>
+                    <button type="button" class="longBtn" onclick="reset()" id="reset">reset</button>
+                </div>
+            </div>
+        </div>
+
+
+        <script type="text/javascript" src="a02_calc.js"></script>
+        <script type="text/javascript" src="a02_watch.js"></script>
+    </body>
+
+</html>

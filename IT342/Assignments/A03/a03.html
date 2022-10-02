@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<head>
+    <title>Registration Form</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style type="text/css">
+        .formLabel, formLabel {
+            float: left;
+            display: block;
+            width: 200px;
+        }
+        form > div {
+            margin-bottom: 10px;
+        }
+        
+        div.errormsg {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <article>
+        <h1>Craft Festival Registration Form</h1>
+
+        <form>
+            <div id="errormsg"></div>
+            <div>
+                <div class="formLabel">First Name:</div>
+                <input type="text" id="fname" name="First Name" required onfocusout="checkRequired(this);">
+            </div>
+            <div>
+                <div class="formLabel">Last Name:</div>
+                <input type="text" id="lname" name="Last Name" required onfocusout="checkRequired(this);">
+            </div>
+            <div>
+                <div class="formLabel">Business Name:</div>
+                <input type="text" id="business" name="business">
+            </div>
+            <div>
+                <div class="formLabel">Contact Phone:</div>
+                <input type="text" id="phone" name="Phone" value="###-###-####" required onfocusout="checkPhone(this);">
+            </div>
+            <div>
+                <div class="formLabel">Street Address:</div>
+                <input type="text" id="street" name="Street" required onfocusout="checkRequired(this);">
+            </div>
+            <div>
+                <div class="formLabel">City:</div>
+                <input type="text" id="city" name="City" required onfocusout="checkRequired(this);">
+            </div>
+            <div>
+                <div class="formLabel">State:</div>
+                <input type="text" id="state" name="State" required onfocusout="checkRequired(this);">
+            </div>
+            <div>
+                <div class="formLabel">Zip:</div>
+                <input type="text" id="zip" name="Zip" required onfocusout="checkRequired(this);">
+            </div>
+            <div>
+                <div class="formLabel">Email</div>
+                <input type="email" id="email" name="Email" required onfocusout="checkRequired(this);">
+            </div>
+            <div>
+                <div class="formLabel">Website:</div>
+                <input type="url" id="website" name="website">
+            </div>
+            <div>
+                <div class="formLabel">Example Photos:</div>
+                <input type="file" id="photos" name="Photos" accept="image/*" multiple required onfocusout="checkRequired(this);">
+            </div>
+
+            <div>
+                <div class="formLabel"># of Spaces ($100 per space)</div>
+                <select id="numspaces" name="numspaces">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                </select>
+            </div>
+            <div>
+                <span>Total Cost: $</span>
+                <span id="totalCost">100</span>
+            </div>
+
+            <input type="submit" id="submit" name="submitForm" value="Submit Registration">
+        </form>
+    </article>
+
+    <script type="text/javascript" src="a03.js"></script>
+</body>
+
