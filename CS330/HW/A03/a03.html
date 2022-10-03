@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<HTML>
+
+<HEAD>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
+<title>A03 Morph</title>
+
+</HEAD>
+
+<STYLE>
+  canvas{
+    border: 1px solid;
+  }
+</STYLE>
+
+<BODY>
+
+<canvas id="gl-canvas" width="512" height="512" >
+Oops ... your browser doesn't support the HTML5 canvas element
+</canvas>
+
+<br>
+<button type="button" id="toggle">Toggle Transform</button>
+
+
+<script id="vertex-shader" type="x-shader/x-vertex">
+#version 300 es
+in vec4 aPosition;
+void
+main()
+{
+  gl_PointSize = 5.0;
+  gl_Position = aPosition;
+}
+</script>
+
+<script id="fragment-shader" type="x-shader/x-fragment">
+#version 300 es
+precision mediump float;
+uniform vec4 aColor;
+out vec4 fColor;
+
+void main()
+{
+  fColor = aColor;
+}
+</script>
+<script type="text/javascript" src="../../Common/initShaders.js"></script>
+<script type="text/javascript" src="../../Common/MVnew.js"></script>
+<script type="text/javascript" src="a03.js"></script>
+
+</BODY>
+</HTML>

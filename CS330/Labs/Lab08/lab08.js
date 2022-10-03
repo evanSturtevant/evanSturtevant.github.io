@@ -28,7 +28,7 @@ function init() {
     // 3 - will later need to be updated in conjunction with whether the points are saved
     canvas.addEventListener("mousedown", function(event){
         t  = vec2(2 * event.x / canvas.width - 1 - ((pointSize ) / canvas.width),
-                    2 * (canvas.height - event.y ) / canvas.height - 1 + ((pointSize ) / canvas.height)); //Ask P. K
+                    2 * (canvas.height - event.y ) / canvas.height - 1 + ((pointSize ) / canvas.height)); 
                     //Bug with above, if canvas has moved i.e. scroll on page, cordinates mess up
         if(savePoints){
             points.push(t);
