@@ -1,0 +1,137 @@
+<head>
+    <title>Checkout Form</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style type="text/css">
+        .label, label {
+            float: left;
+            display: block;
+            width: 200px;
+        }
+        form > div {
+            margin-bottom: 10px;
+        }
+        
+        div.errormsg {
+            color: red;
+        }
+    </style>
+
+    <script type="text/javascript" src="../jquery.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("#continue").on('click', function(){
+                $("#billing").css({"display": "block"});
+                $("#submit").css({"display": "block"});
+            });
+
+            $("#same").on('change', function(){
+                if(this.checked){
+                    $("#bill_fname").val($("#fname").val());
+                    $("#bill_lname").val($("#lname").val());
+                    $("#bill_phone").val($("#phone").val());
+                    $("#bill_street").val($("#street").val());
+                    $("#bill_city").val($("#city").val());
+                    $("#bill_state").val($("#state").val());
+                    $("#bill_zip").val($("#zip").val());
+                    $("#bill_email").val($("#email").val());
+                } else {
+                    $("#bill_fname").val("").val();
+                    $("#bill_lname").val("").val();
+                    $("#bill_phone").val("").val();
+                    $("#bill_street").val("").val();
+                    $("#bill_city").val("").val();
+                    $("#bill_state").val("").val();
+                    $("#bill_zip").val("").val();
+                    $("#bill_email").val("").val();
+                }
+            });
+        });
+    </script>
+
+</head>
+<body>
+    <article>
+        <h1>Checkout Form</h1>
+
+        <form action="shipping-process.php" method="get">
+            <fieldset>  
+                    <legend>Shipping Address</legend>
+                <div id="errormsg"></div>
+                <div>
+                    <label for="fname">First Name:</label>
+                    <input type="text" id="fname" name="fname" required>
+                </div>
+                <div>
+                    <label for="lname">Last Name:</label>
+                    <input type="text" id="lname" name="lname" required>
+                </div>
+                <div>
+                    <label for="phone">Contact Phone:</label>
+                    <input type="phone" id="phone" name="phone" placeholder="xxx-xxx-xxxx" required>
+                </div>
+                <div>
+                    <label for="street">Street Address:</label>
+                    <input type="text" id="street" name="street" required>
+                </div>
+                <div>
+                    <label for="city">City:</label>
+                    <input type="text" id="city" name="city" required>
+                </div>
+                <div>
+                    <label for="state">State:</label>
+                    <input type="text" id="state" name="state" required>
+                </div>
+                <div>
+                    <label for="zip">Zip:</label>
+                    <input type="text" id="zip" name="zip" required>
+                </div>
+                <div>
+                    <label for="email">Email</label>
+                    <input type="text" id="email" name="email" required>
+                </div>
+                
+                <input type="button" id="continue" value="Continue to Billing Info">
+            </fieldset>
+            
+            <fieldset id="billing" style="display: none;">  
+                    <legend>Billing Address</legend>
+                <div>
+                    <input type="checkbox" id="same" name="same" autocomplete="off">
+                    <label for="same">Same as shipping address</div>
+                </div>
+                <div>
+                    <label for="bill_fname">First Name:</label>
+                    <input type="text" id="bill_fname" name="bill_fname" required>
+                </div>
+                <div>
+                    <label for="bill_lname">Last Name:</label>
+                    <input type="text" id="bill_lname" name="bill_lname" required>
+                </div>
+                <div>
+                    <label for="bill_phone">Contact Phone:</label>
+                    <input type="phone" id="bill_phone" name="bill_phone" placeholder="xxx-xxx-xxxx" required>
+                </div>
+                <div>
+                    <label for="bill_street">Street Address:</label>
+                    <input type="text" id="bill_street" name="bill_street" required>
+                </div>
+                <div>
+                    <label for="bill_city">City:</label>
+                    <input type="text" id="bill_city" name="bill_city" required>
+                </div>
+                <div>
+                    <label for="bill_state">State:</label>
+                    <input type="text" id="bill_state" name="bill_state" required>
+                </div>
+                <div>
+                    <label for="bill_zip">Zip:</label>
+                    <input type="text" id="bill_zip" name="bill_zip" required>
+                </div>
+            </fieldset>
+            <input type="submit" id="submit" name="submitForm" value="Submit Registration" style="display: none;">
+        </form>
+    </article>
+
+
+</body>
