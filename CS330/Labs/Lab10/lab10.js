@@ -5,7 +5,7 @@ var gl;
 
 var numPositions  = 36;
 
-var positions = [];
+var rioPositions = [];
 var colors = [];
 
 var xAxis = 0;
@@ -29,19 +29,19 @@ function init()
     if (!gl) alert("WebGL 2.0 isn't available");
 
     colorCube();
-    positions.push(vec4(0, 0, 0, 1));
+    rioPositions.push(vec4(0, 0, 0, 1));
     colors.push(vec4(1,0,0,1));
-    positions.push(vec4(1,0,0,1));
+    rioPositions.push(vec4(1,0,0,1));
     colors.push(vec4(1,0,0,1));
 
-    positions.push(vec4(0, 0, 0, 1));
+    rioPositions.push(vec4(0, 0, 0, 1));
     colors.push(vec4(0,1,0,1));
-    positions.push(vec4(0,1,0,1));
+    rioPositions.push(vec4(0,1,0,1));
     colors.push(vec4(0,1,0,1));
 
-    positions.push(vec4(0, 0, 0, 1));
+    rioPositions.push(vec4(0, 0, 0, 1));
     colors.push(vec4(0,0,1,1));
-    positions.push(vec4(0,0,1,1));
+    rioPositions.push(vec4(0,0,1,1));
     colors.push(vec4(0,0,1,1));
 
     gl.viewport(0, 0, canvas.width, canvas.height);
@@ -65,7 +65,7 @@ function init()
 
     var vBuffer = gl.createBuffer();
     gl.bindBuffer(gl.ARRAY_BUFFER, vBuffer);
-    gl.bufferData(gl.ARRAY_BUFFER, flatten(positions), gl.STATIC_DRAW);
+    gl.bufferData(gl.ARRAY_BUFFER, flatten(rioPositions), gl.STATIC_DRAW);
 
 
     var positionLoc = gl.getAttribLocation(program, "aPosition");
@@ -135,7 +135,7 @@ function quad(a, b, c, d)
     var indices = [a, b, c, a, c, d];
 
     for ( var i = 0; i < indices.length; ++i ) {
-        positions.push( vertices[indices[i]] );
+        rioPositions.push( vertices[indices[i]] );
         //colors.push( vertexColors[indices[i]] );
 
         colors.push(vertexColors[indices[i]]);

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<HEAD>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
+<title>3D Morph</title>
+</HEAD>
+
+<STYLE>
+    canvas{
+      border: 1px solid;
+    }
+  </STYLE>  
+
+<body>
+<canvas id="gl-canvas" width="512"" height="512"> </canvas>
+<br>
+
+
+<button id= "xButton">Rotate X</button>
+<button id= "yButton">Rotate Y</button>
+<button id= "zButton">Rotate Z</button>
+<button id="toggle">Toggle Rotation</button>
+<button id="toggleMorph">Toggle Morph</button> 
+
+<br>
+<br>
+
+<image 
+    src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHCBEPERESERERERIYDxIREREPEREPERESGBgZGRgYGBgcIS4lHB4rIRgZJjgnKy8xNjU1GiQ7QDs0Py40NTEBDAwMDw8QGhISGTEhHCE0MTE0NDExNDQ0NDE0NDQxNDE0NDE0MTQxNDE0MTQ0NDQ0NDExNDQ2MTQ0NDQ0NDQxNP/AABEIAPoAygMBIgACEQEDEQH/xAAbAAACAgMBAAAAAAAAAAAAAAAAAgEDBAUGB//EAEYQAAICAQICBQYLBQYGAwAAAAECABEDBBIhMQUGQVFhEyJxgZGhIzIzQmJysbLBwtEUUnOSojRDY3SC8FSDo7PS4RYkRP/EABkBAQADAQEAAAAAAAAAAAAAAAABAgQDBf/EACIRAQEAAgEDBAMAAAAAAAAAAAABAhEDITEyBBIiQRNRcf/aAAwDAQACEQMRAD8A81kSYTe4IhJhAiEmECJMIQCEIQCEIQCEIQCEIQCEIQCEIQCEIQCEIQCEIQJhJhJESI0ICwqNCAtSZMIEQkwgRHxYmdgqgsxNACLL9ExXIhVguTemxn+IOPNuHLlK532zZOtbvB1L1boHU4rPzGdw33a980Or0j4MjY8iFHXmpr1EEcCPETvtBqdYy58K6vE2oTIjpuCccBVSwrbxosOPv4zSddEcthfJs8oUZX2cRw2nge6yT/qM44cluWqvljNbcvCTCaFCwjQgLJkwgRCTCBEJMIEQkwgTCTCSIhJhAiFSYQIhJhAiFSY2PGz/ABFZ/qKW+yQEqSlK6FgSu6u664kA9/6zKxdH53ICYcrXyrG9e2qmX/8AGdc9AaZ6BJO5kSjXZuYX6py5cp7dLYy7dn0BoNMofMmodmdVd97LuKVwUjuA4eFTQ9b9rYsbrxAz5EB7/N4+q1mV1X6p50zFtV5uNQKTeGGU8CA20/FHceZ8OdvWzozN+z4kXE7suoyGsSM52tvNkLfcOPjM/HflF8uzhYVLcumdPj43Tv3oyV7RKxNrkiEmEkRCTCBEJMIEQmVi6PzuAVxZCpFhyjKhH1jw98pyYmRtprdV0rK/3Se7lI3P2K4RmUgkEEEcwRRHqkSRvegehE1m4HUKjjj5JV3PtFW1EjhxHEWPHsnQaLqgFfYcmF1INDLp3bJf1g44ThCP1HgZaNRlAoZ9Qo7lz5QBXcN05Z4Z3tVscsZ9O/bqjp3Uo2NsTAnbmxMQD3Wjs3++0TRr1KyEsv7Ri3AblG16ZeV3zHHmKNWO+c62r1Dc9Xqz6dRk/WPpul9TpsuPMMuTIEJBTI7OGRq3LZ769oBnPXLjN7TvG1vD1J1d/H03p8pkr7kcdScy/HzYU9G9x7SBU6vTa1dVjTLgfgy2N3LxVh2EHh6pOPpIWMeVdjHgA3FW+q3I+jn4Sn5slvbi5lOojk8dSg9GNiT75m6ToDRYX8nkVnycTWc7dw+hVAj0ce+bfybIbxNuTmcbH4v1T2ejl6JX0hgx6/GcT2mQedjY8HR+xh3yt5Mr3pMZFuHobSp5yafED2NsViPbM8JwAU13Vwr1Tz9en9X0dl8jqh5RRyN8SvYQ3aPTOs6I6e02qrY+1u1GFGVu6mN1hcMaYbWHxh2eBHhGyDu7PskMl8iPA8iJWcbXdgjvPA+6QllKgPH1EfjKciN80cPKKT6OAj4mr090sZ/Nbl8W/Zx/CAInAeHCYGv6H0mcfCYMZPa+0I/8y0ffNsV+2UahRwu+XADmYls7Dj9R1E07knHmyJ3KduRR7aPvmq1PUXOvyebDk794fEfZTfbPQFHby8JQ2Q3Qont/dUePeZ0nLlPtX24uIx9RcpA36jGvD5qO/wBpEluor3S6pG/5TL+czti4HNr7yeEhCDyuvZ7o/Nl+z2xyen6i41+Uzu/hjQYx7STKHwdG6XMpVwHB5O65VTh3H7SeBnZZxuIRLtuBIJ81e0+ns9c8h1ulx4suREO9FyOiu1FmAJFk9stjcs7rZfbjOzu9X0v0Zm2DPl02bbxXeiuQe4HiR6JrsnWbSYwEwY8jqBQCIuLGB3eeAfcZyAUDkAPRJl5wT7qtzZGv1r6h977bqqQEAD1kn3zFjQmiak0paaEmoVLKoistijHhI0lk9XumG0GXa9nA7Dyij5p5B18R2949Ane59ZpnVlZlde0EX7J5s6Buclg555Mld26vsEy5cN307OkzmurqNb0k+hPlNPlOXFY3Ycp3Mg+g/OvA3M3Q9Z9Hq6XJ8DkvzS52UfouOU4Y6ZTz3H0sxlOTRD5rV4HiJF4MkzOPSeneik1eAgujuis2LKCoccOKtXBlNeHfNR0X1Zw59KMis+LKEVxkUlhfk0aivdZPKjx5ziNmXHe0uo78bMB7p6h1dcDQ3f8AcoteJVU/Ae2crLOlTNUmPSa3TNiX9qR8br5rZQyMG5bTV3zFH/Z264NWPjPirvQu/wCAmbqlV0RGFgqw4+qYmFsmE7XO4fNbw7jKrMhHK+aznwNBQb7L41LNaT5LJxIPk34Ggbr2GNjpxxA90NQm3G4rhVeokQMrE9rd8xcXJnCi2IUVzMq0T3ixn/DT27ROf69dIZdLgw5MQXcc+y2QPttGYEDsPm84G3bOX4jzMdfHelsfRB+2afXdZtJpz5NCcuQ8AmPziT4medavX6vU/K5Xo9hah7BMfHptvJmB714TpjxZX6UuUj0D/wCSY+eRHVv3PNIX13HTrXpuRYj0kD8Z5+dOp52fSxkjAn7o9fGX/BUe+PR+munMen0y5MbhsubGGxkcdqEcG9Av2zzmpIFfhJnfj45jFMstlqFRoTqhEio0ioQsqFRqkVJQWoVGqFSElqFRqhUBYVGqFQFnddEV+xCuG/PjRfqqyfgpnDzt+jMe3B0fj78pdvQqP+JWZvUfTpx/bo9ZezGRZIDH0gbb90sADjsNiU9J5NgwP80ZQrehvNHvIiYvg8jY7835THfah5j1Hh6KmR1ZWHGyeiXZj8G/1G+yMtsB2xNd5uHKeRGJz7jANBjPkk4/MA9nD8JoevWK9FZ+bqMbei9y/mnQ6P5Ou53HsdhNZ1vx79BqPDY/8rqfwMvh0yn9Re1eU1Co1QqeizlqRUaoVAWoRqhUBahGqFQFqFRqkVCFtSKjVCpYLUKjVCoC1Co1QqQFqFRqhUCFWzXjO90aVm0afu6PI7DuLeTA+604HIDtbbwajtPLj2TO6mavOmoZERcrnGQfK5WQKqmztam7TyqZfUS9HXjr0npHF5XTunbtbae5hRU+0CV4s37TpseVPlE86vc6/aI+h1RyKQ+N8TK5RkfaewEFWUkMpB5zH6JPkdVn054K3w2Lu2twdfUwv/VMrq22k1IdQVuj38we4xukeODN/ByfdMxFxnDkP7pPnD8RNhmG/G/cUYcPEGBGlPmt/Ey/faYXT6b9JqlA56fIR6lJH2TN0g4P9dj7eP4xNUm5HQjnjdfapky6uyvGKkVJHIeiTU9NlLUI1QqAtQqNUioCwqNUKgLUKjVCoFlQqNUKlkFqFRqhUBKhUaoVAWoVGqFQFqbDq3jcaonE6oxQKWZN/A2TtFjjSHnMGpndWLOuUdgxk12X/szhz+Lph5PQNE3YWZjfFmqyeXIAAeqL03jK+T1CDz8bWa+ch4MPZBF2Pz4Hj65s1UOhB7R6pgd1buMirkU2pUR8AoGvim+B7PRNf0W3kcjYG+LzS/3SeXqP2zYuuzePok+qjAjStz/0H2okzFYertmJoqN+jGf6E/SZAFHhA8ZzY9rsvc7L7CRK6mb0om3UZ17s+Uf1tMSp6k6xlvctQqNUKkoLUKjVIqBFQqTUKhKKhUmoVCF1SKjVCpYLUKjVCoC1Co1QqAtQqNUKgLUs6L1SabVJkclUK7CaLAG+2otTL6IxhtTisXTg8RfGwAffOPNPjVsL8o77CUzIHxuroRYZCGU+giZOBivsmgPQu3IH0uVtK7Z9UjeTAKOQ7FC6HgwFEeg+AmZj6VbGqHU4ztOFMh1GFGOIbuYdbLLRrjxFEHhPPaWf0lpfKKMicMikMp8fxluDVHNhah8IEZdpPEOAeB/WNps6ZAGRldDyZGDKfZFbThMm9bAbgR2Hu9YkDWdDdP6dxTs2PIqY0fG6PvTIg2sp4VdibrT6vHmJON1faaYDgVPOip4j1yrTJ8LlPK2RuA+go4+yJ0poMeXcXd8docbFMnki4PJSeZomxXee+B551jTbrNSP8Ut/NTfjNZUscCztLFbpS53NtHAWfRUWp6mE1jJWW3rS1Co1QqWQWpFR6kVAWoVGqFQFqFRqhUC6oVHqRUsqSoVHqFSAlQqPUKgJUKj1IqAlTZdX1vUp4BD/ANbCPxmBU2/VtLzevEP+qjfknLm8Kvh5R1uNqbH/AJjVt7GaXaNFZcCMAwOmplIBDAhQQR3ShFHwRv8A4xvf/wC5laFReH/Lj8s81qak9E48ePK2nY6Z0yOyvi5lV47HB4OOJ+NdcJmpq9Rj8oMiLnRAjq2MhMjIbBJRvNsUeRHAeqXDHaaoX87L90Sx8fF+PA6b/wA/1gLps6tmyIrBH8zzXot8UGwAePAjjMzNp1td3n8QbejRBsUOQ9Uw8mhx5HQsinfhKFto38KI87mKs13R9MrYxjBcvjIVVZ2LZFfiOJrip4c+IPgeAeXOm0kdxI9hi1MrXJtzZR3Zcg9jGY9T1Z1jJS1Co1QqWC1Co1QqAtQqTUKgRUio1QqFWRUio9QqWCVCo1QqQFqFRqhUBakVHqFQEqbvqunwt/4uEe7K35RNPU3nVhD5RK/4nH7sWc/iJx9R4V04/Jv0Pm4v8vq29pT9Zm6Xni/g171muXjiQ92gzn2hP0mx06U2MX/dn7wnnNJdOeGqv9/IP6FlqsDt8dMf9++JpU46kf4mT7ixtNR8jx56cj3J+sCcR/s5+gfurMLpxnXR5WxtsyI+9GoHaUyg8iPCZWFwE03hS/0f+pX0rR0uqXtCZj9rScZLZKi9nnOV2dmdzbMxZjQFseJNDlxiVLKkVPVk0ybJUKj1CoQSpFR6hUBKhUeoVASoVHqFSRfUKllQqShXUipZUKgV1CpZUKgV1CpZUKgV1N91YHwifx2PsxEfmmlqbrqyayD/AJ7fyphH5pn9T4OvF5Nkn9mvu6LyH2pf4TbYl89P4fD+aadj/wDVcd3RP2pk/SbhG89PqfnnntJNKPP1P8Z/uJK9G/DS+OEj3JLNA1vqv47fcSV6H4mlP0CP6V/SBOIHyeH66/YwhrACmoUdodfag/WVgnyWMd2ZR/UwjMLbKPpD7qxLoef1CpZtqRU9diV1CpZUKgV1Co9QqAlSKllQqBXUKj1CoGTUipZUKkqq6hUs2wqBXUKllQ2wK6hUsqG2BVU3PQKU27uxao/9kflmq2zb9ELWPKe7S5SP9TP/AOEzeqvxn9duHyZ+Zaw5B3dHIvuebJflF/h/mmFrVpM/d+y40+39Zmovwg8MS/eM8+tKjQt8LqP8wfuJJ6Pf4PSn6NH+Q/pF0PHNqf8AMfkxyNCLxaauxiP6HEAevJmj/wDpH/doy8YwHfjdhW5ekfhMUKRjyXfDUnmK/vgZl8d5/hr2+LQOGzptdx3Ow9hMSpl9IJtzZB9Nj6ibH2zHqevjdyVivS1XUKj1CpZBKhUepFQFqRUeoVASpFSypFQMqoVLNsNsIVbZNSzbDbAq2w2y3bDbAq2yHZUBZiFUCySaAHjLds1PTfSGJMeTGXG8pt2AMSCe+uXA9srnlMcbanGW3SvP09p0+KWc/QXh7TQl2l63BEdRp73YBis5tpFF7ath7XPDwnGDiQPGZqgKB2+uedycuWfdrxxmPZ12Xr2W3g6RaYKGBzEggf6JavX9wb/ZVuq+WI4dnzJxgUG+cjh3H2zlp026/B14dHdhpk8/JvIOU8DQFfE4/FlWm665cY2jEpXcaBc8LJ+j4zmBXd298GAHZ740h1y9fc1ENp8bAsTRZx23B+vmQncNNiB27flHPDsnJAA9kmh3Ro23efrGcuQu+JQTV7GPYAOR/WZOk1+PMaXcGq6YdnpHCc5tHOZHRmqXE+5gxFEebRPGaOLmssxt6OWXHLLZ3dNthtkabMuRQ6XRscRR4SzbN8ss3Ga9CbYbZZUjbJQr2wqWbYVArqRtltSKgZe2G2PthtkIJtkVLNsNsJV1CpZthtgV1OA6abdqc5/xCv8AKAv4T0PbPNNW27Lkbvyu3tYmZvVX4yO3D3qvEPOX0iZhAmLgHnD1/ZMrb4zE0w6gC/RDaOHE+yRXjADxkBwB4wIHjIA8YEeMCwKPGG0eMixAkQB+A9coAl7jgfV9soqB03V5rxMO5z7CAf1m12zSdVz8qv1GH9QP4ToNs9Lhu8Ix8k+VVbZG2W1Cp1UVbYbZbUjbIFW2Rtl22RUDL2w2x4RsJthtjwjYTbDbHhGxU52qx7lJ9gnlQNi/WZ6nr/kcv8HJ90zy39Jk9T3jRwfazTjzvUZlUZi6b43qMypld4nYZIQxzI7pAgKZJQ/7MkczJhJdsNvog3OKP0hCw8QR4SraY45+o/ZAQNv1YYjMy9+I+0Ff1M6nbOU6u/2hfqP9k66bvT+LLzT5K9sNseE0OSvbCpZIkCupG2WSIH//2Q=="
+    ></image>
+<p>It is supposed to morph into the statue, it's not super obvious without the reference image :(</p>
+
+<script src="../../Common/initShaders.js"></script>
+<script src="../../Common/MVnew.js"></script>
+
+<script id="vertex-shader" type="x-shader/x-vertex">
+#version 300 es
+
+in  vec4 rioPosition;
+in  vec4 statuePosition;
+in  vec4 aColor;
+out vec4 vColor;
+
+uniform vec3 uTheta;
+uniform float t;
+
+void main()
+{
+    // Compute the sines and cosines of theta for each of
+    //   the three axes in one computation.
+    vec3 angles = radians(uTheta);
+    vec3 c = cos(angles);
+    vec3 s = sin(angles);
+
+    // Remeber: thse matrices are column-major
+    mat4 rx = mat4(1.0,  0.0,  0.0, 0.0,
+		    0.0,  c.x,  s.x, 0.0,
+		    0.0, -s.x,  c.x, 0.0,
+		    0.0,  0.0,  0.0, 1.0);
+
+    mat4 ry = mat4(c.y, 0.0, -s.y, 0.0,
+		    0.0, 1.0,  0.0, 0.0,
+		    s.y, 0.0,  c.y, 0.0,
+		    0.0, 0.0,  0.0, 1.0);
+
+
+    mat4 rz = mat4(c.z, s.z, 0.0, 0.0,
+		    -s.z,  c.z, 0.0, 0.0,
+		    0.0,  0.0, 1.0, 0.0,
+		    0.0,  0.0, 0.0, 1.0);
+
+    mat4 scale = mat4(.2, 0 ,0, 0,
+                      0, .2, 0, 0,
+                      0, 0, .2, 0,
+                      0, 0, 0, 1);
+
+    //vec4 aPosition = scale * rioPosition;
+    //vec4 aPosition = scale * statuePosition;
+    vec4 aPosition;
+    aPosition.x = (t * statuePosition.x) + ((1.0 - t) * rioPosition.x);
+    aPosition.y = (t * statuePosition.y) + ((1.0 - t) * rioPosition.y);
+    aPosition.z = (t * statuePosition.z) + ((1.0 - t) * rioPosition.z);
+    aPosition.w = 1.0;
+
+    vColor = aColor;
+    gl_Position = rz * ry * rx * scale * aPosition;
+    gl_Position.z = -gl_Position.z;
+}
+</script>
+
+<script id="fragment-shader" type="x-shader/x-fragment">
+#version 300 es
+
+precision mediump float;
+
+in vec4 vColor;
+out vec4 fColor;
+
+void
+main()
+{
+    fColor = vColor;
+}
+</script>
+
+<script src="a04.js"></script>
+
+</body>
+</html>
