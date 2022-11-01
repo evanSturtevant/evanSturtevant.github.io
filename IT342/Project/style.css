@@ -1,0 +1,141 @@
+:root{
+    --bgColor: #3E3D45; 
+    --bgColorDark: #2F2D36;
+    --bgColorLight: #49494F;
+    --colorSecondary: #dc2a74;
+    --colorSecondaryDark: #d21e8a;
+    --colorHighlightOne: #2abedc;
+    --colorHighlightTwo: #dcb82a;
+}
+
+/* || NAV BAR *************************************************** */
+
+nav{
+    background-color: var(--bgColorDark);
+    height: 10%;
+    width: 100%;
+    position: fixed;
+
+    margin:0px;
+    padding: 0px;
+    top:0;
+    left: 0;
+}
+
+.navElement{
+    float: left;
+    display: block;
+
+    height: 100%;
+    /* border: white 1px dashed; */
+
+    text-align: center;
+    color: var(--colorHighlightOne);
+
+    font-size: 25px;
+}
+
+#navCenter{
+    width: 69%;
+}
+
+#navLeft, #navRight{
+    width: 15%;
+}
+
+
+.searchBar{
+    margin-right: 2vw;
+    text-align: right;
+}
+
+.searchBar input{
+    background-color: var(--bgColorDark);
+    border: 1px solid var(--colorHighlightOne);
+    border-radius: 15px;
+    color: var(--colorSecondary);
+}
+
+::placeholder{
+    color: white;
+}
+
+.navIcon{
+    margin-left: 2vw;
+    text-align: left;
+}
+
+.navIcon:hover + .sideNav, .sideNav:hover{
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(0px);
+}
+
+/*  || SIDE NAV *************************************************** */
+.sideNav{
+    background-color: var(--bgColorLight);
+    height: 100%;
+    width: 15%;
+    position: fixed;
+    
+    margin: 0px;
+    padding-top: 2%;
+    top: 0;
+    left: 0;
+    filter: drop-shadow(5px 0px 3px var(--bgColorDark));
+
+    transform: translateX(-15vw);
+    opacity: 0;
+    transition: opacity 200ms ease-in-out, transform 500ms ease-in-out;
+    pointer-events: none;
+}
+
+.sideNavElement{
+    /* border: white 1px solid; */
+    width: 100%;
+    padding-top:8px;
+    padding-bottom: 8px;
+    display: block;
+}
+
+.navText{
+    width: 90%;
+    padding-left: 25%;
+    color: var(--colorSecondary);
+}
+
+#closeNav{
+    background-color: var(--colorSecondaryDark);
+    filter: drop-shadow(5px 0px 3px var(--bgColorDark));
+}
+
+#closeNav .navText{
+    color: var(--colorHighlightOne);
+}
+
+#closeNav:hover{
+    background-color: var(--colorSecondary);
+    filter: drop-shadow(5px 0px 3px var(--colorHighlightOne));
+}
+
+.sideNavElement:hover{
+    background-color: var(--bgColorDark);
+    filter: drop-shadow(5px 0px 3px var(--colorHighlightOne));
+}
+
+/* || IMAGE CAROUSEL *************************************************** */
+
+.imgCarousel img{
+    position: relative; 
+    z-index: -1;
+    margin: 0;
+    padding: 0;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+body{
+    background-color: var(--bgColor);
+}
