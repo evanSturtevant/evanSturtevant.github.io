@@ -8,12 +8,17 @@
     --colorHighlightTwo: #dcb82a;
 }
 
+*{
+    margin:0;
+    padding: 0;
+}
+
 /* || NAV BAR *************************************************** */
 
 nav{
     background-color: var(--bgColorDark);
-    height: 10%;
-    width: 100%;
+    height: 10vh;
+    width: 100vw;
     position: fixed;
 
     margin:0px;
@@ -36,11 +41,11 @@ nav{
 }
 
 #navCenter{
-    width: 69%;
+    width: 68vw;
 }
 
 #navLeft, #navRight{
-    width: 15%;
+    width: 15vw;
 }
 
 
@@ -132,8 +137,9 @@ nav{
     padding: 0;
     top:0;
     left: 0;
-    width: 100%;
-    height: 90%;
+    width: 100vw;
+    height: 100vh;
+    max-width: 100%;
 }
 
 body{
