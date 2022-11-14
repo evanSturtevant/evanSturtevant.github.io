@@ -23,44 +23,44 @@ var image2 = new Uint8Array(4*texSize*texSize);
 
 var texCoordsArray = [];
 //full texture
-/*
+
 var texCoord = [
-    vec2(0, 0),
-    vec2(1, 0),
-    vec2(1, 1)
+    vec2(0, 1),
+    vec2(1, .5),
+    vec2(0, 0)
 ];
-*/
+
 //partial texture
-/*
-var texCoord = [
-    vec2(0, 0),
-    vec2(0, 0.5),
-    vec2(0.5, 0.5)
-];
-*/
+
+// var texCoord = [
+//     vec2(0, 0),
+//     vec2(0, 0.5),
+//     vec2(0.5, 0.5)
+// ];
+
 //change order
-/*
-var texCoord = [
-    vec2(1, 1),
-    vec2(0, 1),
-    vec2(1, 0)
-];
-*/
+
+// var texCoord = [
+//     vec2(1, 1),
+//     vec2(0, 1),
+//     vec2(1, 0)
+// ];
+
 //perpendicular texture w/right triangle
-/*
-var texCoord = [
-    vec2(0, 0),
-    vec2(0, 1),
-    vec2(1, 1)
-];
-*/
+
+// var texCoord = [
+//     vec2(0, 0),
+//     vec2(0, 1),
+//     vec2(1, 1)
+// ];
+
 // perpendicular texture w/isoceles triangle
 //
-var texCoord = [
-    vec2(0.5, 1),
-    vec2(0  , 0),
-    vec2(1  , 0)
-];
+// var texCoord = [
+//     vec2(0.5, 1),
+//     vec2(0  , 0),
+//     vec2(1  , 0)
+// ];
 
 var positionsArray = [];
 var colorsArray = [];
