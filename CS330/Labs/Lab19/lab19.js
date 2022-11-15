@@ -108,9 +108,6 @@ function init()
 
     colorTetra();
 
-    var image = document.getElementById("texImage");
-    configureTexture(image);
-    
     //
     //  Configure WebGL
     //
@@ -149,7 +146,8 @@ function init()
     gl.vertexAttribPointer(texCoordLoc, 2, gl.FLOAT, false, 0, 0);
     gl.enableVertexAttribArray(texCoordLoc);
 
-
+    var image = document.getElementById("texImage");
+    configureTexture(image);
 
     thetaLoc = gl.getUniformLocation(program, "uTheta");
 
