@@ -412,7 +412,7 @@ function render() {
 
         if(shouldRotate){
             for(i = 0; i< numNodes; i++){
-                theta[i] += i;;
+                theta[i] += (numNodes - i);
                 initNodes(i);
             }
         }
