@@ -54,6 +54,33 @@ var texCoord = [
     vec2(1  , 1)
 ];
 
+function dynamicTexture(){//Code from: https://webglfundamentals.org/webgl/lessons/webgl-render-to-texture.html
+//Rendering to Texture
+    // create to render to
+    const targetTextureWidth = 256;
+    const targetTextureHeight = 256;
+    const targetTexture = gl.createTexture();
+    gl.bindTexture(gl.TEXTURE_2D, targetTexture);
+     
+    {
+      // define size and format of level 0
+      const level = 0;
+      const internalFormat = gl.RGBA;
+      const border = 0;
+      const format = gl.RGBA;
+      const type = gl.UNSIGNED_BYTE;
+      const data = null;
+      gl.texImage2D(gl.TEXTURE_2D, level, internalFormat,
+                    targetTextureWidth, targetTextureHeight, border,
+                    format, type, data); 
+      // set the filtering so we don't need mips
+      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
+      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
+      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+    }
+}
+// ====================================================================================}
+
 function configureTexture(image) {
     var texture = gl.createTexture();
     gl.activeTexture(gl.TEXTURE0);
@@ -73,11 +100,27 @@ function drawShortHallwayScene() {
         vec4(-10, 5, -10, 1),
         vec4(-10, 5, 10, 1),
         vec4(0, 1, 0, 1)
-    )
+    );
 
     drawPrismDimensions(vec4(1, 7, -1, 1), 2, .5, 1.99, vec4(.5,.5,.5,1)); //left wall
     drawPrismDimensions(vec4(-1, 7, -1, 1), 2, .5, 1.99, vec4(.5,.5,.5,1)); //right wall
     drawPrismDimensions(vec4(0.99, 7, -1, 1), 2, -2, .5, vec4(.5,.5,.5,1)); //ceiling
+
+    drawPlane(
+        vec4(1, 6.5, -1, 1),
+        vec4(1, 5, -1, 1),
+        vec4(-.5, 5, -1, 1),
+        vec4(-.5, 6.5, -1, 1),
+        vec4(.5, 0, .5, 1)
+    );
+
+    drawPlane(
+        vec4(1, 6.5, -3, 1),
+        vec4(1, 5, -3, 1),
+        vec4(-.5, 5, -3, 1),
+        vec4(-.5, 6.5, -3, 1),
+        vec4(.5, 0, .5, 1)
+    );
     
 }
 
@@ -107,6 +150,8 @@ function init()
 
     drawShortHallwayScene();
     drawLongHallwayScene();
+
+    dynamicTexture();
     
     gl.viewport(0, 0, canvas.width, canvas.height);
     gl.clearColor(1.0, 1.0, 1.0, 1.0);
@@ -173,9 +218,9 @@ function init()
         }
     }
 
-    getTexCoordsArray(vec4(-1, 3, 2, 1), vec4(2, 3, 5, 1), vec4(3, 5, -2, 1));
-    console.log("Triangle Two ======================================");
-    getTexCoordsArray(vec4(10, 5, 10, 1), vec4(10, 5, -10, 1), vec4(-20, 5, -10, 1));
+    // getTexCoordsArray(vec4(-1, 3, 2, 1), vec4(2, 3, 5, 1), vec4(3, 5, -2, 1));
+    // console.log("Triangle Two ======================================");
+    // getTexCoordsArray(vec4(10, 5, 10, 1), vec4(10, 5, -10, 1), vec4(-20, 5, -10, 1));
 
     render();
 }
