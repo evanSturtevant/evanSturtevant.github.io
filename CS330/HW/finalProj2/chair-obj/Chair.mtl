@@ -165,14 +165,12 @@ illum 4
 Kd 0.00 0.00 0.00
 Ka 0.00 0.00 0.00
 Tf 1.00 1.00 1.00
-
 Ni 1.00
 newmtl pachimari1:lambert3SG
 illum 4
 Kd 0.00 0.00 0.00
 Ka 0.00 0.00 0.00
 Tf 1.00 1.00 1.00
-
 Ni 1.00
 newmtl pachimari1:lambert4SG
 illum 4
@@ -238,7 +236,6 @@ illum 4
 Kd 0.00 0.00 0.00
 Ka 0.00 0.00 0.00
 Tf 1.00 1.00 1.00
-
 Ni 1.00
 Ks 0.50 0.50 0.50
 newmtl pasted__blinn12SG
@@ -246,7 +243,6 @@ illum 4
 Kd 0.00 0.00 0.00
 Ka 0.00 0.00 0.00
 Tf 1.00 1.00 1.00
-
 Ni 1.00
 Ks 0.50 0.50 0.50
 newmtl pasted__blinn15SG
@@ -343,7 +339,6 @@ illum 4
 Kd 0.00 0.00 0.00
 Ka 0.00 0.00 0.00
 Tf 1.00 1.00 1.00
-.jpg
 Ni 1.00
 newmtl pasted__lambert39SG
 illum 4
@@ -410,7 +405,6 @@ illum 4
 Kd 0.00 0.00 0.00
 Ka 0.00 0.00 0.00
 Tf 1.00 1.00 1.00
-.jpg
 Ni 1.00
 newmtl pasted__lambert103SG
 illum 4
@@ -451,7 +445,6 @@ illum 4
 Kd 0.00 0.00 0.00
 Ka 0.00 0.00 0.00
 Tf 1.00 1.00 1.00
-.jpg
 Ni 1.00
 Ks 0.50 0.50 0.50
 newmtl pasted__pasted__blinn9SG
