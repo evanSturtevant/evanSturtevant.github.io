@@ -1,8 +1,13 @@
 "use strict";
 
+function reset(){
+    location.reload(); 
+}
+
 // This is not a full .obj parser.
 // see http://paulbourke.net/dataformats/obj/
 
+function drawObj(filepath){
 function create1PixelTexture(gl, pixel) {
     const texture = gl.createTexture();
     gl.bindTexture(gl.TEXTURE_2D, texture);
@@ -287,6 +292,8 @@ function parseMapArgs(unparsedArgs) {
     if (!gl) {
       return;
     }
+
+    gl.clear(gl.DEPTH_BUFFER_BIT | gl.COLOR_BUFFER_BIT);
   
     const vs = `
     attribute vec4 a_position;
@@ -360,7 +367,8 @@ function parseMapArgs(unparsedArgs) {
   
     // const objHref = 'https://evansturtevant.github.io/CS330/HW/finalProj2/stormtrooper-obj/stormtrooper.obj'; //Stormtrooper
     // const objHref = 'https://evansturtevant.github.io/CS330/HW/finalProj2/chair-obj/Chair.obj'; //chair  
-    const objHref = 'https://evansturtevant.github.io/CS330/HW/finalProj2/mario-obj/mario.obj'; //mario
+    // const objHref = 'https://evansturtevant.github.io/CS330/HW/finalProj2/mario-obj/mario.obj'; //mario
+    const objHref = filepath;
     const response = await fetch(objHref);
     const text = await response.text();
     const obj = parseOBJ(text);
@@ -522,3 +530,4 @@ function parseMapArgs(unparsedArgs) {
   }
   
   main();
+}

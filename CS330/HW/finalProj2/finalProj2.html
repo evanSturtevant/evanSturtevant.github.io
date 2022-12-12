@@ -4,69 +4,25 @@
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
 <title>OBJ Render</title>
 </HEAD>
+<style>
+    button{
+        height: 50px;
+        padding: 10px;
+    }
+</style>
 <body>
 
 <canvas id="canvas" width="512"" height="512"> </canvas>
+<br>
+<div style="display: inline-block;">
+<button id="reset" onclick="reset();" style="width: 100%;">RESET</button>
+<br>
+<button id= "stormtrooper" onclick="drawObj('https://evansturtevant.github.io/CS330/HW/finalProj2/stormtrooper-obj/stormtrooper.obj');">StormTrooper</button>
+<button id= "chair" onclick="drawObj('https://evansturtevant.github.io/CS330/HW/finalProj2/chair-obj/Chair.obj');">Chair</button>
+<button id = "mario" onclick="drawObj('https://evansturtevant.github.io/CS330/HW/finalProj2/mario-obj/mario.obj');">Mario</button>
+<button id = "nurse" onclick="drawObj('https://evansturtevant.github.io/CS330/HW/finalProj2/patrick-obj/Patrick.obj');">Luigi</button>
+</div>
 
-<!-- <button id= "xButton">Rotate X</button>
-<button id= "yButton">Rotate Y</button>
-<button id= "zButton">Rotate Z</button>
-<button id = "ButtonT">Toggle Rotation</button> -->
-
-<!-- <script id="vertex-shader" type="x-shader/x-vertex">
-#version 300 es
-
-in  vec4 aPosition;
-in  vec4 aColor;
-out vec4 vColor;
-
-uniform vec3 uTheta;
-
-void main()
-{
-    // Compute the sines and cosines of theta for each of
-    //   the three axes in one computation.
-    vec3 angles = radians( uTheta );
-    vec3 c = cos( angles );
-    vec3 s = sin( angles );
-
-    // Remeber: thse matrices are column-major
-    mat4 rx = mat4( 1.0,  0.0,  0.0, 0.0,
-		    0.0,  c.x,  s.x, 0.0,
-		    0.0, -s.x,  c.x, 0.0,
-		    0.0,  0.0,  0.0, 1.0 );
-
-    mat4 ry = mat4( c.y, 0.0, -s.y, 0.0,
-		    0.0, 1.0,  0.0, 0.0,
-		    s.y, 0.0,  c.y, 0.0,
-		    0.0, 0.0,  0.0, 1.0 );
-
-
-    mat4 rz = mat4( c.z, s.z, 0.0, 0.0,
-		    -s.z,  c.z, 0.0, 0.0,
-		    0.0,  0.0, 1.0, 0.0,
-		    0.0,  0.0, 0.0, 1.0 );
-
-    vColor = aColor;
-    gl_Position = rz * ry * rx * aPosition;
-    gl_Position.z = -gl_Position.z;
-}
-</script>
-
-<script id="fragment-shader" type="x-shader/x-fragment">
-#version 300 es
-
-precision mediump float;
-
-in vec4 vColor;
-out vec4 fColor;
-
-void
-main()
-{
-    fColor = vColor;
-}
-</script> -->
 
 <script src="https://webglfundamentals.org/webgl/resources/webgl-utils.js"></script>
 <script src="https://webglfundamentals.org/webgl/resources/m4.js"></script>
