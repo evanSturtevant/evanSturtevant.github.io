@@ -17,9 +17,16 @@ function create1PixelTexture(gl, pixel) {
   }
 
   function createTexture(gl, url) {
+
+    function requestCORSIfNotSameOrigin(img, url) {
+        if ((new URL(url, window.location.href)).origin !== window.location.origin) {
+          img.crossOrigin = "";
+        }
+      }
     const texture = create1PixelTexture(gl, [128, 192, 255, 255]);
     // Asynchronously load an image
     const image = new Image();
+    requestCORSIfNotSameOrigin(image, url);
     image.src = url;
     console.log("texture url: " + url);
     image.addEventListener('load', function() {
