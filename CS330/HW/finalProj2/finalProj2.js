@@ -21,6 +21,7 @@ function create1PixelTexture(gl, pixel) {
     // Asynchronously load an image
     const image = new Image();
     image.src = url;
+    console.log("texture url: " + url);
     image.addEventListener('load', function() {
       // Now that the image has loaded make copy it to the texture.
       gl.bindTexture(gl.TEXTURE_2D, texture);
